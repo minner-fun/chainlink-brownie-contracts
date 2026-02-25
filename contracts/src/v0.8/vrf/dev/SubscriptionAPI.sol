@@ -159,7 +159,9 @@ abstract contract SubscriptionAPI is ConfirmedOwner, IERC677Receiver, IVRFSubscr
       revert InvalidSubscription();
     }
   }
-  constructor() ConfirmedOwner(msg.sender) {}
+  constructor(address _sender) ConfirmedOwner(msg.sender) {
+    address sender = _sender;
+  }
 
   /**
    * @notice set the LINK token contract and link native feed to be
